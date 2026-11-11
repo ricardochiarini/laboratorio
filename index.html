@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Laboratório · Ricardo Chiarini</title>
+<meta name="description" content="Oito experimentos de motion feitos à mão em canvas, SVG e DOM, com o código de cada um.">
+<style>
+:root{
+  --bg:#E9E1CF; --fg:#23251C; --ac:#A8432B; --fio:#23251C26; --mut:#5E6050;
+  --f-s:"Instrument Serif",Georgia,serif;
+  --f-ui:system-ui,sans-serif;
+  --f-mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#23251C; --fg:#ECE5D3; --ac:#E39A6E; --fio:#ECE5D326; --mut:#A9A891; color-scheme:dark}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 var(--f-ui)}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--ac);outline-offset:3px}
+.topo{max-width:1280px;margin:0 auto;padding:clamp(28px,6vw,72px) clamp(16px,4vw,48px) 28px}
+.topo h1{margin:0;font:400 clamp(48px,9vw,120px)/.95 var(--f-s);text-transform:uppercase}
+.topo p{max-width:62ch;margin:18px 0 0;color:var(--mut)}
+.mono{font:500 12px/1.35 var(--f-mono);letter-spacing:.06em;text-transform:uppercase}
+
+.lab-grade{max-width:1280px;margin:0 auto;padding:0 clamp(16px,4vw,48px) 64px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.lab-card{display:grid;grid-template-rows:auto 1fr auto;border:1px solid var(--fio);border-radius:16px;background:color-mix(in srgb,var(--fg) 3%,var(--bg));overflow:hidden}
+.lab-topo{display:flex;gap:12px;align-items:baseline;padding:12px 14px;border-bottom:1px solid var(--fio);color:var(--mut);font:500 12px/1.35 var(--f-mono);letter-spacing:.06em;text-transform:uppercase}
+.lab-topo b{color:var(--fg);font-weight:500}
+.lab-n{color:var(--ac)}
+.lab-tec{margin-left:auto;text-align:right}
+
+.lab-palco{position:relative;min-height:clamp(260px,32vw,440px);touch-action:pan-y;overflow:hidden;cursor:crosshair}
+.lab-palco canvas,.lab-palco svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.lab-dica{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);z-index:2;padding:7px 11px;border-radius:99px;background:var(--bg);border:1px solid var(--fio);pointer-events:none;white-space:nowrap;font:500 12px/1.35 var(--f-mono);letter-spacing:.06em;text-transform:uppercase;transition:opacity .18s ease-out}
+.usado .lab-dica{opacity:0}
+.emb{position:absolute;inset:0;display:grid;place-items:center;font:400 clamp(44px,5vw,80px)/1 var(--f-s);text-transform:uppercase}
+.emb span{color:var(--ac);font-family:var(--f-mono);font-size:.6em}
+.elas{position:absolute;inset:0;display:flex;justify-content:center;align-items:center;font:400 clamp(44px,6vw,104px)/1 var(--f-s);text-transform:uppercase;user-select:none;-webkit-user-select:none;touch-action:none}
+.elas span{display:inline-block;transform-origin:50% 100%;cursor:grab;padding:0 .02em}
+.elas span:active{cursor:grabbing;color:var(--ac)}
+
+.lab-pe{display:flex;flex-wrap:wrap;gap:10px 18px;justify-content:space-between;align-items:center;padding:10px 14px;border-top:1px solid var(--fio);font:500 12px/1.35 var(--f-mono);letter-spacing:.06em;text-transform:uppercase}
+.lab-ctrl{display:flex;flex-wrap:wrap;gap:8px 16px}
+.lab-param{display:flex;align-items:center;gap:8px;color:var(--mut)}
+.lab-param input{width:84px;accent-color:var(--ac)}
+.lab-param output{min-width:2.6em;color:var(--fg)}
+.lab-bts{display:flex;gap:6px;margin-left:auto}
+.lab-bts a,.lab-bts button{padding:7px 10px;border:1px solid var(--fio);border-radius:99px;background:none;color:var(--fg);font:inherit;letter-spacing:inherit;text-transform:inherit;text-decoration:none;cursor:pointer}
+@media (hover:hover){.lab-bts a:hover,.lab-bts button:hover{background:var(--fg);color:var(--bg)}}
+
+@media (max-width:900px){.lab-grade{grid-template-columns:minmax(0,1fr)}.lab-tec{display:none}}
+</style>
+</head>
+<body>
+<header class="topo">
+  <p class="mono">8 experimentos de motion · R reinicia · [ ] ajusta</p>
+  <h1>Laboratório</h1>
+  <p>Peças pequenas para mexer: física, tipografia e pixels, todas feitas à mão em canvas, SVG e DOM, sem biblioteca. Cada uma tem controles ao vivo e um arquivo próprio em <code>src/</code>. A versão com a identidade completa está em <a href="https://ricardochiarini.com/lab">ricardochiarini.com/lab</a>.</p>
+</header>
+<main class="lab-grade"></main>
+<script type="module" src="src/lab.js"></script>
+</body>
+</html>
