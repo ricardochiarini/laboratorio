@@ -1,5 +1,9 @@
 # Laboratório
 
+**[Abrir o laboratório](https://ricardochiarini.com/lab)**
+
+[![Página do laboratório com os experimentos de motion](docs/captura.jpg)](https://ricardochiarini.com/lab)
+
 Código dos oito experimentos de motion do laboratório de [ricardochiarini.com](https://ricardochiarini.com/lab).
 
 São peças pequenas para mexer com o cursor ou o dedo: física, tipografia e pixels, escritas à mão em canvas 2D, SVG e DOM. Não há biblioteca nem etapa de build.
@@ -41,5 +45,9 @@ npx serve .
 ## Sobre esta versão
 
 No site, os experimentos ficam num único arquivo e dividem a página com o restante do portfólio (GSAP para a entrada dos cartões, Lenis para o scroll). Aqui cada um está em seu módulo, com os mesmos algoritmos e sem essas dependências, para facilitar a leitura.
+
+## Licença
+
+Código aberto para leitura, como portfólio. Todos os direitos reservados: veja [LICENSE](LICENSE).
 
 Feito por [Ricardo Chiarini](https://ricardochiarini.com).
